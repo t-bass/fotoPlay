@@ -1,5 +1,5 @@
 /**
- * Инициализирует плеер Stories по заданным параметрам
+ * Инициализирует плеер fotoPlay по заданным параметрам
  *
  * @param {{
  * target: string,
@@ -47,8 +47,36 @@ function initPlayer(params) {
     return `
   <div class="player-chunk ${isFirst ? 'player-chunk-active' : ''}">
     <img src="${slide.url}" alt="${slide.alt || ''}" />
+    ${generateOverlays(slide)}
   </div>`;
   }
+
+  function generateOverlays(slide) {
+    if (slide.overlays === undefined) {
+      return '';
+    }
+
+    let res = '';
+    for (const el of slide.overlays) {
+      const styles = (el.styles !== undefined ? Object.entries(el.styles) : [])
+        .map((el) => el.join(':'))
+        .join(';');
+      res += `<div class="player-chunk-overlay" style="${styles}">${renderOverlay(el)}</div>`;
+    }
+    return res;
+
+    function renderOverlay(overlay) {
+      if (overlay.type === 'text') {
+        return overlay.value;
+      }
+
+      if (overlay.type === 'img') {
+        return `<img src = "${overlay.value}" alt="" />`;
+      }
+      return '';
+    }
+  }
+
   function generatePlayerLayout() {
     return `
   <div class="player">

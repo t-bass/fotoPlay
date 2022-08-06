@@ -37,14 +37,21 @@
   width: 100%;
 }
 .player-chunk {
+  position: relative;
   display: none;
 }
+.player-chunk-overlay {
+  position: absolute;
+  user-select: none;
+}
+
 .player-chunk-active {
   display: block;
 }
 
 .player-chunk-swither {
   position: absolute;
+  z-index: 1;
   height: 100%;
   width: 30%;
 }
@@ -55,4 +62,10 @@
 .player-chunk-next {
   top: 0;
   right: 0;
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(2);
+  }
 }
