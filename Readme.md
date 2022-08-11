@@ -19,3 +19,4 @@
   </body>
 </html>
 ```
+![image] (https://github.com/t-bass/fotoPlay/blob/master/img/promo.gif)
