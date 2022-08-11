@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .player {
   width: 370px;
   margin: 0 auto;
@@ -64,8 +66,12 @@
   right: 0;
 }
 
-@keyframes scale {
-  50% {
-    transform: scale(2);
-  }
+.softbrush {
+  color: #dfa9ba;
+  text-align: center;
+  text-shadow: 1px 1px #0d0c0c;
+  font-size: 25px;
+  font-family: 'Lobster', cursive;
+  background: url('../img/watercolor-brush.png') no-repeat center;
+  background-size: cover;
 }

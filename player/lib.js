@@ -44,9 +44,14 @@ function initPlayer(params) {
   </div>`;
   }
   function generatePlayerChunk(slide, isFirst) {
+    const style = [];
+    if (slide.filter) {
+      style.push(`filter: ${slide.filter.join(' ')}`);
+    }
+
     return `
   <div class="player-chunk ${isFirst ? 'player-chunk-active' : ''}">
-    <img src="${slide.url}" alt="${slide.alt || ''}" />
+    <img src="${slide.url}" alt="${slide.alt || ''}" style="${style.join(';')}" />
     ${generateOverlays(slide)}
   </div>`;
   }
@@ -58,10 +63,13 @@ function initPlayer(params) {
 
     let res = '';
     for (const el of slide.overlays) {
+      const classes = el.classes !== undefined ? el.classes.join(' ') : '';
       const styles = (el.styles !== undefined ? Object.entries(el.styles) : [])
         .map((el) => el.join(':'))
         .join(';');
-      res += `<div class="player-chunk-overlay" style="${styles}">${renderOverlay(el)}</div>`;
+      res += `<div class="player-chunk-overlay ${classes}" style="${styles}">${renderOverlay(
+        el,
+      )}</div>`;
     }
     return res;
 
