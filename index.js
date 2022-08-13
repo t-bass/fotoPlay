@@ -1,5 +1,8 @@
-initPlayer({
+import Player from './player/lib.js';
+
+new Player({
   target: '.my-player',
+  delay: 5,
   slides: [
     {
       url: 'img/408CFB76.jpeg',
@@ -7,8 +10,8 @@ initPlayer({
       filter: ['contrast(120%)'],
       overlays: [
         {
-          type: 'text',
-          value: 'Chiffon-cake - это очень вкусно!',
+          type: 'Text',
+          text: 'Chiffon-cake - это очень вкусно!',
 
           classes: ['softbrush'],
           styles: {
@@ -26,8 +29,8 @@ initPlayer({
 
       overlays: [
         {
-          type: 'text',
-          value: 'Chiffon-cake - это очень вкусно!',
+          type: 'Text',
+          text: 'Chiffon-cake - это очень вкусно!',
 
           classes: ['softbrush'],
           styles: {
@@ -45,8 +48,8 @@ initPlayer({
 
       overlays: [
         {
-          type: 'text',
-          value: 'Chiffon-cake - это очень вкусно!',
+          type: 'Text',
+          text: 'Chiffon-cake - это очень вкусно!',
 
           classes: ['softbrush'],
           styles: {
@@ -64,8 +67,8 @@ initPlayer({
 
       overlays: [
         {
-          type: 'text',
-          value: 'Chiffon-cake - это очень вкусно!',
+          type: 'Text',
+          text: 'Chiffon-cake - это очень вкусно!',
 
           classes: ['softbrush'],
           styles: {
@@ -77,5 +80,4 @@ initPlayer({
       ],
     },
   ],
-  delay: 5,
 });
